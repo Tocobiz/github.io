@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logística TyC - Final Dynamic Landing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#f68716", // Naranja Oscuro
+                        "primary-dark": "#cb6e11", // Naranja Fuerte
+                        secondary: "#2c7380", // Verde Azulado (Updated to match request)
+                        "secondary-light": "#358c9c", // Azul Celeste
+                        "gray-custom": "#d3d2d2", // Gris Claro
+                        "background-light": "#ffffff",
+                        "background-dark": "#111827",
+                        "surface-light": "#f9fafb",
+                        "surface-dark": "#1f2937",
+                        "text-main-light": "#1f2937",
+                        "text-main-dark": "#f9fafb",
+                        "text-muted-light": "#4b5563",
+                        "text-muted-dark": "#9ca3af",
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        html {
+            scroll-behavior: smooth;
+        }
+        .clip-diagonal-bottom {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        .clip-diagonal-top {
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+        .clip-diagonal-both {
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+        }
+        .duotone-icon-container {
+            @apply relative inline-flex items-center justify-center;
+        }
+        .duotone-icon-bg {
+            @apply absolute w-full h-full opacity-15 rounded-full scale-[0.7] translate-x-[10%] translate-y-[10%] z-0;
+            background-color: currentColor;
+        }
+        .duotone-icon-fg {
+            @apply relative z-[1];
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-sans transition-colors duration-300">
+<nav class="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-24">
+<div class="flex-shrink-0 flex items-center">
+<img alt="Logística TyC Logo" class="h-14 w-auto dark:hidden" onerror="this.onerror=null; this.src='https://placehold.co/200x60?text=Logistica+TyC&amp;font=montserrat';" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-8MDIZivXYTdgAIEnVPkvsx_62b-y06B1nUleQvwUlKFT546zpCVvdahSkMwRcmo2UhQo6dzHHU4VWKUDfUoVkIex10Pe1hz4ks2Fg5WjxOrWcsWWNdtIFaKRrn4s-O7-DgtVfhQoSVxRnVw8D54hqK4pvi8NPnGZehwVt7ruPcdRc0eTsfGNXkJTcH0BDgmzGUNbIIe8VGPacncSsOB3PgBOYxFE_Zi7hGVghYs_N8tBxm6BNOrNpeuxtVVnlvqHuUxEOUTZE5f2"/>
+<img alt="Logística TyC Logo White" class="h-14 w-auto hidden dark:block" onerror="this.onerror=null; this.src='https://placehold.co/200x60/1f2937/ffffff?text=Logistica+TyC&amp;font=montserrat';" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF3KJNKmKDZP8mHo2wig3QzZgXdNn-EdBlIsxhDqt_IXpII4MlikDeuaXEHTLO10vzgdCD2B0sIBrr4ThXyVkTfBP_F3zCu6m_arSHAxbwCGDo_gauubn3GRlmNiNrU2OrfEtZ0etMwfNfdhJs2T3gpAU-xaYKY779UzeshFXCZT1nFSaXpmqMunJWjnAMCjD_fiJ2_juY2CIO35zYt1NXIPPFk7ZRIMLpGFSo9_-I6gbsw4nuNJ3zHTElf-yw2xHTvzhYeKsM0SD3"/>
+</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-text-main-light dark:text-gray-300 hover:text-primary dark:hover:text-primary font-bold uppercase text-sm tracking-wide transition-colors" href="#inicio">Inicio</a>
+<a class="text-text-main-light dark:text-gray-300 hover:text-primary dark:hover:text-primary font-bold uppercase text-sm tracking-wide transition-colors" href="#servicios">Servicios</a>
+<a class="text-text-main-light dark:text-gray-300 hover:text-primary dark:hover:text-primary font-bold uppercase text-sm tracking-wide transition-colors" href="#nosotros">Nosotros</a>
+<a class="text-text-main-light dark:text-gray-300 hover:text-primary dark:hover:text-primary font-bold uppercase text-sm tracking-wide transition-colors" href="#contacto">Contacto</a>
+<button class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/30 transition-all transform hover:-translate-y-0.5">
+                        Sistema Corporativo
+                    </button>
+<button class="p-2 rounded-full text-gray-400 hover:text-primary focus:outline-none" id="theme-toggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+</div>
+<div class="md:hidden flex items-center">
+<button class="text-gray-500 hover:text-primary focus:outline-none p-2">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="relative h-[650px] flex items-center overflow-hidden clip-diagonal-bottom" id="inicio">
+<div class="absolute inset-0 z-0">
+<img alt="Logistics Truck on Highway" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1SbQQ8TPIsbw_PhkBcVsEpTclwqoENHSJtd-FNFE2llXxLMxZSF0mCDJWUMcT18xSIzU6va8VV8_FY8RvT206jc5Dis5Qxw2NOTYhHAbrIzMKdr3wTm5xro8LVmwK6E9ScTu8-bIyfS70sb94rgfzmmpiEBynFyK79KmnErOxS-Z5SFFZMeCWIoI6w-JXhv0pM3yGTdTNNSsl1kTtSQu8_Q1Zk7aNKFHyfAqCUMvRwr19nf3I9JK8ccogFV-JfEhGsHtG4StDZn_5"/>
+<div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-secondary/30 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/10"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full -mt-20 text-center md:text-left">
+<div class="max-w-3xl mx-auto md:mx-0">
+<div class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Logística Inteligente
+                </div>
+<h1 class="text-5xl md:text-7xl font-display font-black text-white leading-tight mb-6 drop-shadow-lg">
+                    Movemos el futuro <br/>de su <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-400">Negocio</span>
+</h1>
+<p class="text-xl text-gray-100 mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
+                    Soluciones de transporte estratégico con cobertura nacional y monitoreo en tiempo real.
+                </p>
+</div>
+</div>
+</header>
+<div class="relative z-30 -mt-32 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-2xl overflow-hidden border-t-8 border-primary">
+<div class="p-8 md:p-12 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/5 rounded-full -mr-32 -mt-32 transition-transform group-hover:scale-110 duration-700"></div>
+<div class="relative z-10">
+<div class="flex flex-col items-center text-center mb-8">
+<div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined text-4xl">my_location</span>
+</div>
+<h3 class="text-3xl font-bold font-display text-text-main-light dark:text-white">Rastreo de Carga</h3>
+<p class="text-base text-text-muted-light dark:text-text-muted-dark mt-2">Ingrese sus datos para el monitoreo en tiempo real de su envío</p>
+</div>
+<div class="max-w-2xl mx-auto">
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="flex-1 block w-full rounded-lg border-2 border-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:ring-secondary focus:border-secondary py-4 px-6 text-lg transition-colors" placeholder="Ingrese número de orden (Ej: TYC-8842)" type="text"/>
+<button class="inline-flex justify-center items-center px-10 py-4 border border-transparent text-lg font-bold rounded-lg text-white bg-primary-dark hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-lg shadow-primary/20 transition-all transform hover:scale-[1.02]">
+                                BUSCAR
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="relative py-32 -mt-20 bg-secondary clip-diagonal-both">
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternUnits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+<span class="inline-block py-1 px-3 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider mb-4 border border-white/30">
+                Nuestros Pilares
+            </span>
+<h2 class="text-3xl md:text-5xl font-display font-black text-white mb-16">
+                Servicio 360° en Logística
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white rounded-2xl p-8 shadow-xl transform transition duration-300 hover:-translate-y-2">
+<div class="duotone-icon-container text-secondary mb-6">
+<div class="duotone-icon-bg bg-secondary"></div>
+<span class="material-symbols-outlined text-5xl duotone-icon-fg">groups</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-3">Equipo Experto</h3>
+<p class="text-gray-600 text-sm leading-relaxed">
+                        Personal altamente capacitado y comprometido con la excelencia operativa.
+                    </p>
+</div>
+<div class="bg-white rounded-2xl p-8 shadow-xl transform transition duration-300 hover:-translate-y-2 delay-75">
+<div class="duotone-icon-container text-primary mb-6">
+<div class="duotone-icon-bg bg-primary"></div>
+<span class="material-symbols-outlined text-5xl duotone-icon-fg">speed</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-3">Rapidez</h3>
+<p class="text-gray-600 text-sm leading-relaxed">
+                        Logística dinámica 24/7. Rutas optimizadas para entregas express.
+                    </p>
+</div>
+<div class="bg-white rounded-2xl p-8 shadow-xl transform transition duration-300 hover:-translate-y-2 delay-100">
+<div class="duotone-icon-container text-secondary mb-6">
+<div class="duotone-icon-bg bg-secondary"></div>
+<span class="material-symbols-outlined text-5xl duotone-icon-fg">verified_user</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-3">Seguridad</h3>
+<p class="text-gray-600 text-sm leading-relaxed">
+                        Monitoreo satelital constante. Su carga viaja protegida y asegurada.
+                    </p>
+</div>
+<div class="bg-white rounded-2xl p-8 shadow-xl transform transition duration-300 hover:-translate-y-2 delay-150">
+<div class="duotone-icon-container text-primary mb-6">
+<div class="duotone-icon-bg bg-primary"></div>
+<span class="material-symbols-outlined text-5xl duotone-icon-fg">handshake</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-3">Confianza</h3>
+<p class="text-gray-600 text-sm leading-relaxed">
+                        Transparencia total. Información clara para emisor y destinatario.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light dark:bg-background-dark" id="servicios">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<span class="text-primary font-bold uppercase tracking-widest text-sm">Soluciones Integrales</span>
+<h2 class="mt-2 text-4xl md:text-5xl font-display font-extrabold text-text-main-light dark:text-white">
+                    Transporte Especializado
+                </h2>
+</div>
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2 relative group">
+<div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-30 blur-lg group-hover:opacity-50 transition duration-500"></div>
+<img alt="Trabajador de logística revisando inventario" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[500px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyWK0tGGUWXHIEpDJsPVd8ORov20ZMOQZvniSdsGerZEH7YUp6QIQdrLiJHrgsUFnE-TDfhTLi7B4q2xX4J2exwkpzUtXSpn4B5rDNii_kK_SJU7os9wDDAvX2fDk7eJOTj_STriRn8Bp9Rt6ng6Ulo5MCXmUPqaylwNExdfNDaqMLOg43sblJvk3h_6Qc6LhsySTlBAxretYtWWV-Hojp6Qt3gWJ0RD_NlLw6X2fjI5mbr37yy2OqTeZ7u44Mpxl_RI_XKPzxIedg"/>
+<div class="absolute -bottom-6 -right-6 z-20 bg-white dark:bg-surface-dark p-6 rounded-xl shadow-xl border-t-4 border-secondary">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-secondary text-4xl">emoji_events</span>
+<div>
+<span class="block font-black text-3xl dark:text-white">15+</span>
+<span class="text-xs text-text-muted-light dark:text-text-muted-dark font-bold uppercase tracking-wide">Años de experiencia</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 space-y-8">
+<div class="flex gap-6 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex-shrink-0">
+<div class="duotone-icon-container text-primary h-16 w-16 bg-orange-50 dark:bg-orange-900/20 rounded-2xl">
+<span class="material-symbols-outlined text-4xl">local_shipping</span>
+</div>
+</div>
+<div>
+<h4 class="text-xl font-bold text-text-main-light dark:text-white mb-2">Transporte de Concentrado</h4>
+<p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">
+                                Flota especializada con equipos sellados herméticamente para evitar pérdidas y contaminación ambiental.
+                            </p>
+</div>
+</div>
+<div class="flex gap-6 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex-shrink-0">
+<div class="duotone-icon-container text-secondary h-16 w-16 bg-cyan-50 dark:bg-cyan-900/20 rounded-2xl">
+<span class="material-symbols-outlined text-4xl">inventory_2</span>
+</div>
+</div>
+<div>
+<h4 class="text-xl font-bold text-text-main-light dark:text-white mb-2">Carga General y Paletizada</h4>
+<p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">
+                                Distribución eficiente para retail e industria con optimización de espacios y tiempos de carga.
+                            </p>
+</div>
+</div>
+<div class="flex gap-6 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex-shrink-0">
+<div class="duotone-icon-container text-primary h-16 w-16 bg-orange-50 dark:bg-orange-900/20 rounded-2xl">
+<span class="material-symbols-outlined text-4xl">precision_manufacturing</span>
+</div>
+</div>
+<div>
+<h4 class="text-xl font-bold text-text-main-light dark:text-white mb-2">Maquinaria y Equipos</h4>
+<p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">
+                                Camas bajas y equipos de alto tonelaje para el traslado seguro de maquinaria pesada.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-28 bg-gray-custom dark:bg-[#2d3748] clip-diagonal-top relative z-0" id="nosotros">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-display font-bold text-text-main-light dark:text-white">
+                    Quiénes Somos
+                </h2>
+<div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+<p class="mt-6 max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg">
+                    Referentes de confianza y eficiencia en el transporte nacional. Conectamos negocios a través de kilómetros.
+                </p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-surface-dark p-8 rounded-xl shadow-lg border-b-4 border-primary">
+<div class="text-secondary mb-4">
+<span class="material-symbols-outlined text-5xl">flag</span>
+</div>
+<h3 class="text-2xl font-bold text-text-main-light dark:text-white mb-4">Nuestra Misión</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                        Brindar servicios de transporte de carga confiables, seguros y eficientes, contribuyendo activamente al desarrollo de las operaciones de nuestros clientes.
+                    </p>
+</div>
+<div class="bg-white dark:bg-surface-dark p-8 rounded-xl shadow-lg border-b-4 border-secondary">
+<div class="text-primary mb-4">
+<span class="material-symbols-outlined text-5xl">visibility</span>
+</div>
+<h3 class="text-2xl font-bold text-text-main-light dark:text-white mb-4">Nuestra Visión</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                        Ser la empresa líder en transporte de carga en la zona norte del país, reconocida por su puntualidad, innovación y excelencia.
+                    </p>
+</div>
+<div class="bg-white dark:bg-surface-dark p-8 rounded-xl shadow-lg border-b-4 border-gray-800 dark:border-gray-500">
+<div class="text-gray-800 dark:text-gray-300 mb-4">
+<span class="material-symbols-outlined text-5xl">diamond</span>
+</div>
+<h3 class="text-2xl font-bold text-text-main-light dark:text-white mb-4">Valores</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                        Integridad, responsabilidad, seguridad y orientación al cliente son los pilares fundamentales que sostienen cada ruta.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gray-50 dark:bg-surface-dark rounded-3xl shadow-none border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+<div class="inline-flex items-center space-x-2 text-primary font-bold mb-4 uppercase tracking-wider text-sm">
+<span class="material-symbols-outlined">satellite_alt</span>
+<span>Tecnología GPS</span>
+</div>
+<h3 class="text-3xl md:text-4xl font-display font-bold text-text-main-light dark:text-white mb-6">
+                        Control y Trazabilidad Total
+                    </h3>
+<p class="text-text-muted-light dark:text-text-muted-dark mb-8 text-lg">
+                        100% de nuestra flota equipada con GPS de última generación. Sistema de Control de Flota propio que garantiza seguridad para conductores y carga.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center text-text-main-light dark:text-gray-300 font-medium">
+<span class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center mr-3 text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+</span>
+                            Monitoreo en tiempo real 24/7
+                        </li>
+<li class="flex items-center text-text-main-light dark:text-gray-300 font-medium">
+<span class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center mr-3 text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+</span>
+                            Alertas instantáneas de estado
+                        </li>
+<li class="flex items-center text-text-main-light dark:text-gray-300 font-medium">
+<span class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center mr-3 text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+</span>
+                            Reportes de gestión detallados
+                        </li>
+</ul>
+</div>
+<div class="md:w-1/2 relative h-80 md:h-auto">
+<img alt="Mapa de ruta GPS" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBARuSpls9ps4HNGm8VdZb6_2G-nA5Iy7Ojry4ZHFRjzENAxAvHp4BMR2qK43OpDMppUBTH3EVCSAnWONc74b6-TiuvLdKMa6GCwgzka-wdEmQ4B3QkpqSLU8oRBYrpR7IDneDzw2F63C9I06hO90qhs7Uru5hSiuxOyCH81MTPlpLYpEg3gQagDSomDFvFyqzqmypGN9y9PbppHEtyo7zWegopgYd4YTs2_xxlX9mKmWYXFabtd1ZmLxH77RnMAzpLVXD4cSxMzkis"/>
+<div class="absolute inset-0 bg-secondary/20 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface-light dark:bg-surface-dark/50" id="contacto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<span class="text-primary font-bold uppercase tracking-widest text-sm">Hablemos</span>
+<h2 class="mt-2 text-4xl md:text-5xl font-display font-black text-text-main-light dark:text-white mb-6">
+                        ¿Listo para mover tu carga?
+                    </h2>
+<p class="text-text-muted-light dark:text-text-muted-dark mb-10 text-lg">
+                        Complete el formulario y uno de nuestros ejecutivos comerciales se pondrá en contacto con usted a la brevedad posible.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-start group">
+<div class="flex-shrink-0 w-12 h-12 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center shadow-md text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">location_on</span>
+</div>
+<div class="ml-6">
+<h4 class="text-lg font-bold text-text-main-light dark:text-white">Oficina Central</h4>
+<p class="mt-1 text-text-muted-light dark:text-text-muted-dark">
+                                    Av. Industrial 1234, Parque Logístico<br/>
+                                    Santiago, Chile
+                                </p>
+</div>
+</div>
+<div class="flex items-start group">
+<div class="flex-shrink-0 w-12 h-12 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center shadow-md text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">phone</span>
+</div>
+<div class="ml-6">
+<h4 class="text-lg font-bold text-text-main-light dark:text-white">Teléfono</h4>
+<p class="mt-1 text-text-muted-light dark:text-text-muted-dark">
+                                    +56 2 2999 9999
+                                </p>
+</div>
+</div>
+<div class="flex items-start group">
+<div class="flex-shrink-0 w-12 h-12 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center shadow-md text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">email</span>
+</div>
+<div class="ml-6">
+<h4 class="text-lg font-bold text-text-main-light dark:text-white">Email</h4>
+<p class="mt-1 text-text-muted-light dark:text-text-muted-dark">
+                                    contacto@logisticatyc.cl
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark p-8 md:p-10 rounded-2xl shadow-xl border-t-8 border-secondary">
+<form action="#" class="space-y-6" method="POST">
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+<div>
+<label class="block text-sm font-bold text-text-main-light dark:text-gray-300 mb-1" for="nombre">Nombre</label>
+<input class="block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm py-3 px-4" id="nombre" name="nombre" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-bold text-text-main-light dark:text-gray-300 mb-1" for="apellido">Apellido</label>
+<input class="block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm py-3 px-4" id="apellido" name="apellido" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-bold text-text-main-light dark:text-gray-300 mb-1" for="email">Email Corporativo</label>
+<input class="block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm py-3 px-4" id="email" name="email" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-bold text-text-main-light dark:text-gray-300 mb-1" for="mensaje">Mensaje</label>
+<textarea class="block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm py-3 px-4" id="mensaje" name="mensaje" rows="4"></textarea>
+</div>
+<button class="w-full flex justify-center py-4 px-4 border border-transparent rounded-lg shadow-lg text-base font-bold text-white bg-secondary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-all transform hover:scale-[1.01]" type="submit">
+                            Enviar Mensaje
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-gray-900 text-white pt-20 pb-10 border-t border-primary/30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div>
+<img alt="Logística TyC Logo Footer" class="h-12 w-auto mb-8 brightness-0 invert opacity-90" onerror="this.onerror=null; this.src='https://placehold.co/180x50/333/fff?text=Logistica+TyC&amp;font=montserrat';" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV73L_zPzDezrluYiw33KyNUzlZ9y3xQOCPt7R9HM0BjjQxpsD_8n9VRnMixaIa2nPtc0YLZGmz7r3KJk6tU-_kUK5uurQPmDSIyuapo0mZKsL-KvfNOmpScGny3nxt3HcMXi6bc7R746oS7Hzzz_bji2Nh7IYELIpd7cKwO7HnR6dzHF0mDIP9Y9rsl_dW1YL8sjR55dkkboliOe5zjcfC6QYmYuSt9s865DfLM89jHL14tN_KQ2FW1Xi06lImzamAVoSGkEWqyff"/>
+<p class="text-gray-400 text-sm leading-loose">
+                        Expertos en logística integral y transporte de carga industrial. Conectamos puntos, unimos negocios.
+                    </p>
+<div class="flex space-x-4 mt-8">
+<a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300" href="#">
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300" href="#">
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465 1.067-.047 1.407-.06 4.123-.06h.63zm12.518 10.88c.049-1.096.06-1.439.06-4.318 0-2.879-.011-3.222-.06-4.318-.049-1.096-.24-2.128-.795-3.165a6.518 6.518 0 00-1.898-2.438 6.517 6.517 0 00-2.438-1.898c-1.037-.555-2.069-.746-3.165-.795C15.658 2.011 15.315 2 12.436 2c-2.879 0-3.222.011-4.318.06-1.096.049-2.128.24-3.165.795a6.518 6.518 0 00-2.438 1.898 6.517 6.517 0 00-1.898 2.438c-.555 1.037-.746 2.069-.795 3.165C2.011 11.222 2 11.565 2 14.444s.011 3.222.06 4.318c.049 1.096.24 2.128.795 3.165a6.518 6.518 0 001.898 2.438 6.517 6.517 0 002.438 1.898c1.037.555 2.069.746 3.165.795 1.096.049 1.439.06 4.318.06 2.879 0 3.222-.011 4.318-.06 1.096-.049 2.128-.24 3.165-.795a6.518 6.518 0 002.438-1.898 6.517 6.517 0 001.898-2.438c.555-1.037.746-2.069.795-3.165zM12.436 17.56c-2.83 0-5.124-2.294-5.124-5.124s2.294-5.124 5.124-5.124 5.124 2.294 5.124 5.124-2.294 5.124-5.124 5.124zm0-8.625A3.502 3.502 0 008.934 12.436 3.502 3.502 0 0012.436 15.938 3.502 3.502 0 0015.938 12.436 3.502 3.502 0 0012.436 8.935zm6.54-3.112a1.08 1.08 0 110 2.16 1.08 1.08 0 010-2.16z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Empresa</h3>
+<ul class="space-y-3">
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center" href="#inicio"><span class="w-1 h-1 bg-primary rounded-full mr-2"></span>Inicio</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center" href="#nosotros"><span class="w-1 h-1 bg-primary rounded-full mr-2"></span>Quiénes Somos</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center" href="#servicios"><span class="w-1 h-1 bg-primary rounded-full mr-2"></span>Servicios</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Servicios</h3>
+<ul class="space-y-3">
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center" href="#"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>Carga General</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center" href="#"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>Transporte Minero</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center" href="#"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>Almacenaje</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Ayuda</h3>
+<ul class="space-y-3">
+<li><a class="text-gray-400 hover:text-white transition-colors" href="#contacto">Centro de Contacto</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors" href="#">Portal de Clientes</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors" href="#">Términos y Condiciones</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    © 2024 Logística TyC. Todos los derechos reservados.
+                </p>
+<div class="flex space-x-6 text-sm text-gray-500">
+<a class="hover:text-white" href="#">Política de Privacidad</a>
+<a class="hover:text-white" href="#">Política de Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+
+</body></html>
