@@ -12,7 +12,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
         tailwind.config = {
-            darkMode: "class",
+            darkMode: "media",
             theme: {
                 extend: {
                     colors: {
@@ -25,6 +25,9 @@
                         "text-dark-main": "#eaeaea",
                         "shippyo-gold": "#d4af37",
                         "corporate-gold": "#c58525",
+                        "border-dark": "#333333",
+                        "table-header-dark": "#2a2a2a",
+                        "table-border-dark": "#3a3a3a",
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
@@ -34,14 +37,27 @@
             },
         }
     </script>
-<style>body {
+<style>
+        body {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }@media (prefers-color-scheme: dark) {
+            .dark-bg-body { background-color: #121212 !important; }
+            .dark-bg-card { background-color: #1e1e1e !important; border-color: #333333 !important; }
+            .dark-text-main { color: #eaeaea !important; }
+            .dark-text-sub { color: #9ca3af !important; }
+            .dark-border { border-color: #333333 !important; }
+            .dark-bg-element { background-color: #2a2a2a !important; border-color: #3a3a3a !important; }
+            .dark-table-header { background-color: #2a2a2a !important; }
+            .dark-table-border { border-color: #3a3a3a !important; }
+            .dark-text-gold { color: #c58525 !important; }
+            .dark-icon-green { color: #4ade80 !important; }
+            .dark-bg-badge-yellow { background-color: rgba(113, 63, 18, 0.4) !important; color: #fef08a !important; border-color: rgba(161, 98, 7, 0.5) !important; }
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-600 dark:text-text-dark-main min-h-screen flex items-center justify-center py-10 px-4 transition-colors duration-200">
-<div class="max-w-2xl w-full mx-auto bg-white dark:bg-card-dark shadow-xl rounded-xl overflow-hidden border border-slate-100 dark:border-zinc-800 transition-colors duration-200">
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-600 dark:text-text-dark-main min-h-screen flex items-center justify-center py-10 px-4 transition-colors duration-200 dark-bg-body">
+<div class="max-w-2xl w-full mx-auto bg-white dark:bg-card-dark shadow-xl rounded-xl overflow-hidden border border-slate-100 dark:border-border-dark transition-colors duration-200 dark-bg-card dark-border">
 <div class="relative h-48 w-full overflow-hidden">
 <img alt="Logistics warehouse shipping containers" class="absolute inset-0 w-full h-full object-cover saturate-0 opacity-80" data-alt="Desaturated logistics warehouse and shipping containers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDta8JCwuAJfRLSCUmB0lX4lBC_6zJ_RUfAkICruhYdg49pS38jAStsLaEBZ-aohx5_Elx43eII-_SjfKMSBrj01NUYP-e2Chz9xn6LhHn7rQpU1QzGuI0k1wy9O13J3KoVny-GpVWz_xluYRoOVMOXL5nxPqEJ2lYko8KUQXZLAEJxOcyAl7S5ZEt9uX2c-I00qtYwtrDyamH5dSolfznc4oUbKQHfRKjuZCUbRlUmRPJuNhQ7YX5Tx5PsO3AO3Cl_Bf-L-rEK1pM"/>
 <div class="absolute inset-0 bg-gradient-to-r from-shippyo-gold/70 to-primary/80 mix-blend-multiply"></div>
@@ -56,63 +72,63 @@
 </div>
 <div class="p-8 space-y-8">
 <div class="text-center sm:text-left">
-<p class="text-lg font-medium text-slate-800 dark:text-text-dark-main">Hola, [Nombre].</p>
-<p class="text-sm text-slate-500 dark:text-gray-400 mt-1">Tenemos novedades importantes sobre tu operación logística reciente.</p>
+<p class="text-lg font-medium text-slate-800 dark:text-text-dark-main dark-text-main">Hola, [Nombre]</p>
+<p class="text-sm text-slate-500 dark:text-gray-400 mt-1 dark-text-sub">Tenemos novedades importantes sobre tu operación logística reciente.</p>
 </div>
-<div class="bg-slate-50 dark:bg-element-dark rounded-lg p-6 border border-slate-100 dark:border-zinc-700 shadow-sm transition-colors duration-200">
+<div class="bg-slate-50 dark:bg-element-dark rounded-lg p-6 border border-slate-100 dark:border-zinc-700 shadow-sm transition-colors duration-200 dark-bg-element dark-border">
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
 <div class="flex flex-col">
-<span class="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-1">Código</span>
-<span class="text-lg font-bold text-slate-900 dark:text-text-dark-main">SH-2024</span>
+<span class="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-1 dark-text-sub">Código</span>
+<span class="text-lg font-bold text-slate-900 dark:text-text-dark-main dark-text-main">SH-2026</span>
 </div>
 <div class="flex flex-col items-center sm:items-start">
-<span class="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-1">Estado</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-700/50">
+<span class="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-1 dark-text-sub">Estado</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-700/50 dark-bg-badge-yellow">
 <span class="w-1.5 h-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400 mr-2 animate-pulse"></span>
                             En Tránsito
                         </span>
 </div>
 <div class="flex flex-col">
-<span class="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-1">Monto Pagado</span>
-<span class="text-lg font-bold text-emerald-600 dark:text-emerald-400">CLP $1.250.000</span>
+<span class="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-1 dark-text-sub">Monto Pagado</span>
+<span class="text-lg font-bold text-emerald-600 dark:text-emerald-400 dark-icon-green">CLP $1.250.000</span>
 </div>
 </div>
 </div>
 <div>
-<h3 class="text-sm font-semibold text-slate-900 dark:text-text-dark-main uppercase tracking-wider mb-4 border-b border-slate-100 dark:border-zinc-700 pb-2">Hitos Logísticos</h3>
-<div class="overflow-hidden rounded-lg border border-slate-100 dark:border-zinc-700">
-<table class="min-w-full divide-y divide-slate-100 dark:divide-zinc-700">
-<thead class="bg-slate-50 dark:bg-element-dark">
+<h3 class="text-sm font-semibold text-slate-900 dark:text-text-dark-main uppercase tracking-wider mb-4 border-b border-slate-100 dark:border-zinc-700 pb-2 dark-text-main dark-border">Hitos Logísticos</h3>
+<div class="overflow-hidden rounded-lg border border-slate-100 dark:border-table-border-dark dark-table-border">
+<table class="min-w-full divide-y divide-slate-100 dark:divide-table-border-dark">
+<thead class="bg-slate-50 dark:bg-table-header-dark dark-table-header">
 <tr>
-<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Fecha</th>
-<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Detalle</th>
-<th class="px-4 py-3 text-right text-xs font-medium text-slate-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Ubicación</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-gray-400 uppercase tracking-wider dark-text-sub" scope="col">Fecha</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-gray-400 uppercase tracking-wider dark-text-sub" scope="col">Detalle</th>
+<th class="px-4 py-3 text-right text-xs font-medium text-slate-500 dark:text-gray-400 uppercase tracking-wider dark-text-sub" scope="col">Ubicación</th>
 </tr>
 </thead>
-<tbody class="bg-white dark:bg-card-dark divide-y divide-slate-100 dark:divide-zinc-700">
-<tr class="text-slate-500 dark:text-gray-400">
+<tbody class="bg-white dark:bg-card-dark divide-y divide-slate-100 dark:divide-table-border-dark dark-bg-card">
+<tr class="text-slate-500 dark:text-gray-400 dark-text-sub">
 <td class="px-4 py-3 whitespace-nowrap text-sm">12 Oct, 08:30</td>
 <td class="px-4 py-3 whitespace-nowrap text-sm flex items-center">
-<span class="material-icons-round text-base mr-2 text-green-500 dark:text-green-400">check_circle</span>
+<span class="material-icons-round text-base mr-2 text-green-500 dark:text-green-400 dark-icon-green">check_circle</span>
                                     Recibido en Almacén
                                 </td>
 <td class="px-4 py-3 whitespace-nowrap text-sm text-right">Shenzhen, CN</td>
 </tr>
-<tr class="text-slate-500 dark:text-gray-400">
+<tr class="text-slate-500 dark:text-gray-400 dark-text-sub">
 <td class="px-4 py-3 whitespace-nowrap text-sm">14 Oct, 14:15</td>
 <td class="px-4 py-3 whitespace-nowrap text-sm flex items-center">
-<span class="material-icons-round text-base mr-2 text-green-500 dark:text-green-400">check_circle</span>
+<span class="material-icons-round text-base mr-2 text-green-500 dark:text-green-400 dark-icon-green">check_circle</span>
                                     Salida de Origen
                                 </td>
 <td class="px-4 py-3 whitespace-nowrap text-sm text-right">Hong Kong Port</td>
 </tr>
-<tr class="bg-primary/5 dark:bg-element-dark">
-<td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-text-dark-main">15 Oct, 09:00</td>
+<tr class="bg-primary/5 dark:bg-element-dark dark-bg-element">
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-text-dark-main dark-text-main">15 Oct, 09:00</td>
 <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-primary dark:text-purple-300 flex items-center">
 <span class="material-icons-round text-base mr-2 animate-spin text-primary dark:text-purple-300">sync</span>
                                     En Tránsito Marítimo
                                 </td>
-<td class="px-4 py-3 whitespace-nowrap text-sm text-right font-medium text-slate-900 dark:text-text-dark-main">Océano Pacífico</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-right font-medium text-slate-900 dark:text-text-dark-main dark-text-main">Océano Pacífico</td>
 </tr>
 <tr class="text-slate-400 dark:text-gray-500">
 <td class="px-4 py-3 whitespace-nowrap text-sm italic">Estimado: 25 Oct</td>
@@ -136,51 +152,51 @@
                 </p>
 </div>
 </div>
-<div class="bg-slate-50 dark:bg-zinc-900 px-8 py-6 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-200">
+<div class="bg-slate-50 dark:bg-element-dark px-8 py-6 border-t border-slate-100 dark:border-border-dark transition-colors duration-200 dark-bg-element dark-border">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
 <div>
 <div class="flex items-center space-x-2 text-primary dark:text-purple-400 mb-3">
 <span class="material-icons-round text-xl">local_shipping</span>
 <span class="font-bold text-sm tracking-tight">Shippyo</span>
 </div>
-<p class="text-xs text-slate-500 dark:text-gray-400 leading-relaxed mb-4">
+<p class="text-xs text-slate-500 dark:text-gray-400 leading-relaxed mb-4 dark-text-sub">
                         Simplificando la logística global para importaciones rápidas y modernas. Tu carga, nuestra prioridad.
                     </p>
 <div class="flex space-x-4">
-<a class="text-corporate-gold hover:text-shippyo-gold transition-colors" href="#">
+<a class="text-corporate-gold hover:text-shippyo-gold transition-colors dark-text-gold" href="#">
 <span class="sr-only">LinkedIn</span>
 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
 </a>
-<a class="text-corporate-gold hover:text-shippyo-gold transition-colors" href="#">
+<a class="text-corporate-gold hover:text-shippyo-gold transition-colors dark-text-gold" href="#">
 <span class="sr-only">Instagram</span>
 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
 </a>
-<a class="text-corporate-gold hover:text-shippyo-gold transition-colors" href="#">
+<a class="text-corporate-gold hover:text-shippyo-gold transition-colors dark-text-gold" href="#">
 <span class="sr-only">X</span>
 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
 </a>
-<a class="text-corporate-gold hover:text-shippyo-gold transition-colors" href="#">
+<a class="text-corporate-gold hover:text-shippyo-gold transition-colors dark-text-gold" href="#">
 <span class="sr-only">Facebook</span>
 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
 </a>
-<a class="text-corporate-gold hover:text-shippyo-gold transition-colors" href="#">
+<a class="text-corporate-gold hover:text-shippyo-gold transition-colors dark-text-gold" href="#">
 <span class="sr-only">TikTok</span>
 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v6.14c0 3.48-2.32 6.66-5.74 7.22-3.48.56-6.85-1.43-8.24-4.62-1.02-2.33-.7-5.13 1.05-7.14 1.74-2.02 4.63-2.66 7.02-1.55v4.25c-1.74-.75-3.69-.15-4.68 1.44-.99 1.6-.47 3.79 1.17 4.79 1.65.99 3.8.46 4.78-1.18.27-.45.42-.96.42-1.5V7.97c0-2.65.01-5.3.01-7.95z"></path></svg>
 </a>
 </div>
 </div>
 <div class="md:text-right">
-<h4 class="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-wider mb-2">Soporte</h4>
-<ul class="space-y-1 text-xs text-slate-500 dark:text-gray-400">
-<li><a class="hover:text-primary transition-colors" href="mailto:soporte@shippyo.com">soporte@shippyo.com</a></li>
+<h4 class="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-wider mb-2 dark-text-sub">Soporte</h4>
+<ul class="space-y-1 text-xs text-slate-500 dark:text-gray-400 dark-text-sub">
+<li><a class="hover:text-primary transition-colors" href="mailto:soporte@shippyo.cl">soporte@shippyo.cl</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">+569 1234 5678</a></li>
 <li>Lunes - Viernes, 9am - 6pm EST</li>
 </ul>
 </div>
 </div>
-<div class="mt-8 pt-6 border-t border-slate-200 dark:border-zinc-800 text-center">
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-border-dark text-center dark-border">
 <p class="text-[10px] text-slate-400 dark:text-gray-500">
-                    © 2024 Shippyo App. Todos los derechos reservados.<br/>
+                    © 2026 Shippyo App. Todos los derechos reservados.<br/>
 <a class="underline hover:text-primary" href="#">Política de Privacidad</a> • <a class="underline hover:text-primary" href="#">Términos de Servicio</a> • <a class="underline hover:text-primary" href="#">Darse de baja</a>
 </p>
 </div>
